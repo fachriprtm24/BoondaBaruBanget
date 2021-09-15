@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Boonda</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="discussion">Discussion</string>
+    <string name="infants">Infants</string>
+    <string name="pregnancy">Pregnancy</string>
+    <string name="growth">Growth</string>
+    <string name="menu">Menu</string>
+    <string name="measurement">Measurement</string>
+    <string name="health_record">Health Record</string>
+    <string name="immunization">Immunization</string>
+    <string name="graphs">Graphs</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="head">Head</string>
+    <string name="add_data">Add Data</string>
+    <string name="david">David</string>
+    <string name="select_children">Select Children</string>
+    <string name="gender">Gender</string>
+    <string name="boy">Boy</string>
+    <string name="girl">Girl</string>
+    <string name="birthday">Birthday</string>
+    <string name="kg">Kg</string>
+    <string name="cm">Cm</string>
+    <string name="premature">Premature</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="save">Save</string>
+</resources>
