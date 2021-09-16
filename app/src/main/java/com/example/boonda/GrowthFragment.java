@@ -28,7 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
             cvMeasurement = view.findViewById(R.id.cv_measurement);
             cvGraphs = view.findViewById(R.id.cv_graph);
-            cvHealth = view.findViewById(R.id.cv_health);
 
             cvMeasurement.setOnClickListener(view1-> {
                 Intent i = new Intent(getActivity(), MeasurementActivity.class);

@@ -19,6 +19,5 @@
             android:text="@string/david"
             android:gravity="center"
             android:textSize="12sp"/>
-
     </LinearLayout>
 </LinearLayout>

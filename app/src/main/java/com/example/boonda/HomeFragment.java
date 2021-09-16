@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        etQuestion = view.findViewById(R.id.et_question);
+        etQuestion = view.findViewById(R.id.et_title);
         etAnswer = view.findViewById(R.id.et_answer);
         btnTry = view.findViewById(R.id.btn_try);
 
@@ -44,8 +44,8 @@ public class HomeFragment extends Fragment {
         String questions = etQuestion.getText().toString();
         String answers = etAnswer.getText().toString();
 
-//        Question question = new Question(childName, childBirthday, childWeight, questions, answers);
-
+//        Question question = new Question(questions, answers);
+//
 //        dbRef.push().setValue(question);
     }
 }

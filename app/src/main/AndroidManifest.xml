@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Boonda">
-        <activity android:name=".AddChildDataActivity"></activity>
+        <activity android:name=".MenuDiscussActivity"></activity>
+        <activity android:name=".AddChildDataActivity" />
         <activity android:name=".GraphActivity" />
         <activity android:name=".SelectChildActivity" />
         <activity android:name=".MeasurementActivity" />

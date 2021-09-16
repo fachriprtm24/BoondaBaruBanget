@@ -64,4 +64,10 @@
         <item name="android:layout_marginLeft">30dp</item>
     </style>
 
+    <style name="ImageCorner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">5dp</item>
+        <item name="color">@color/white</item>
+    </style>
+
 </resources>

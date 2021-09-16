@@ -44,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_childrens_name"
             android:textColor="@color/black"
+            android:hint="exp: Brian"
             android:inputType="text"/>
         <TextView
             style="@style/Text.TitleInput"
@@ -78,13 +79,17 @@
             android:id="@+id/tv_childrens_birthday"
             android:layout_below="@id/rbg_gender"
             android:text="@string/birthday"/>
+
         <EditText
             android:id="@+id/et_childrens_birthday"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_childrens_birthday"
-            android:textColor="@color/black"
-            android:inputType="date"/>
+            android:layout_marginTop="0dp"
+            android:hint="exp: 12 September 2009"
+            android:inputType="text"
+            android:textColor="@color/black" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

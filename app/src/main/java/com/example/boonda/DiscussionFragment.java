@@ -1,5 +1,6 @@
 package com.example.boonda;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,8 +22,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class DiscussionFragment extends Fragment {
 
-    ImageView ivInfants, ivPregnancy, ivEducation, ivBehaviour, ivToddlers, ivPreschool, ivParenting, ivTough;
-    TextView tvTopic;
+    ImageView ivInfants, ivPregnancy, ivEducation, ivBehaviour, ivToddlers, ivPreschool, ivParenting, ivTopic;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -58,84 +58,80 @@ public class DiscussionFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discussion, container, false);
 
-//        ivInfants = view.findViewById(R.id.infants_img);
-//        ivPregnancy = view.findViewById(R.id.pregnancy_img);
-//        ivEducation = view.findViewById(R.id.edu_img);
-//        ivBehaviour = view.findViewById(R.id.behavior_img);
-//        ivToddlers = view.findViewById(R.id.toodlers_img);
-//        ivPreschool = view.findViewById(R.id.preschool_img);
-//        ivParenting = view.findViewById(R.id.parenting_img);
-//        ivTough = view.findViewById(R.id.tough_img);
-//
-//        tvTopic = view.findViewById(R.id.tv_topic);
-//
-//
-//        ivInfants.setOnClickListener(view1-> {
-//            getFragmentManager().beginTransaction().replace(R.id.fl_fragment, new AddDataFragment()).commit();
-////            tvTopic.setText("Infants");
-//        });
-//
-//        ivPregnancy.setOnClickListener(view1-> {
-//            getFragmentManager().beginTransaction().replace(R.id.fl_fragment, new MenuDiscussionFragment()).commit();
-//        });
-//
-//        ivEducation.setOnClickListener(view1-> {
-//            getFragmentManager().beginTransaction().replace(R.id.fl_fragment, new MenuDiscussionFragment()).commit();
-//        });
-//
-//        ivBehaviour.setOnClickListener(view1-> {
-//            getFragmentManager().beginTransaction().replace(R.id.fl_fragment, new MenuDiscussionFragment()).commit();
-//        });
-//        ivToddlers.setOnClickListener(view1-> {
-//            getFragmentManager().beginTransaction().replace(R.id.fl_fragment, new MenuDiscussionFragment()).commit();
-//        });
-//
-//        ivPreschool.setOnClickListener(view1-> {
-//            getFragmentManager().beginTransaction().replace(R.id.fl_fragment, new MenuDiscussionFragment()).commit();
-//        });
-//        ivParenting.setOnClickListener(view1-> {
-//            getFragmentManager().beginTransaction().replace(R.id.fl_fragment, new MenuDiscussionFragment()).commit();
-//        });
-//        ivTough.setOnClickListener(view1-> {
-//            getFragmentManager().beginTransaction().replace(R.id.fl_fragment, new MenuDiscussionFragment()).commit();
-//        });
+        ivInfants = view.findViewById(R.id.iv_infants);
+        ivPregnancy = view.findViewById(R.id.iv_pregnancy);
+        ivEducation = view.findViewById(R.id.iv_education);
+        ivBehaviour = view.findViewById(R.id.iv_behavior);
+        ivToddlers = view.findViewById(R.id.iv_toddlers);
+        ivPreschool = view.findViewById(R.id.iv_preschool);
+        ivParenting = view.findViewById(R.id.iv_parenting);
+        ivTopic = view.findViewById(R.id.iv_topics);
 
-        recview = view.findViewById(R.id.rv_recent_discussion);
-        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+        ivInfants.setOnClickListener(view1-> {
+            moveIntent();
+        });
+
+        ivPregnancy.setOnClickListener(view1-> {
+            moveIntent();
+        });
+
+        ivEducation.setOnClickListener(view1-> {
+            moveIntent();
+        });
+
+        ivBehaviour.setOnClickListener(view1-> {
+            moveIntent();
+        });
+
+        ivToddlers.setOnClickListener(view1-> {
+            moveIntent();
+        });
+
+        ivPreschool.setOnClickListener(view1-> {
+            moveIntent();
+        });
+
+        ivParenting.setOnClickListener(view1-> {
+            moveIntent();
+        });
+
+        ivTopic.setOnClickListener(view1-> {
+            moveIntent();
+        });
+
+//        recview = view.findViewById(R.id.rv_recent_discuss);
+//        recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
         //test database connect to app
-        Log.d("testdatabase",FirebaseDatabase.getInstance().getReference("User").toString());
+//        Log.d("testdatabase",FirebaseDatabase.getInstance().getReference("User").toString());
 
-        FirebaseRecyclerOptions<Model> options =
-                new FirebaseRecyclerOptions.Builder<Model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("User"), Model.class)
-                        .build();
-
-        adapter = new DiscussionAdapter(options);
-        recview.setAdapter(adapter);
+//        FirebaseRecyclerOptions<Model> options =
+//                new FirebaseRecyclerOptions.Builder<Model>()
+//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("User"), Model.class)
+//                        .build();
+//
+//        adapter = new DiscussionAdapter(options);
+//        recview.setAdapter(adapter);
 
         return view;
     }
 
-//    public void onResume(){
-//        super.onResume();
-//
-//        // Set title bar
-//        ((HomeActivity) getActivity())
-//                .setActionBar("Discussion");
+    public void moveIntent(){
+        Intent i = new Intent(getActivity(), MenuDiscussActivity.class);
+        startActivity(i);
+    }
+
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        adapter.startListening();
 //    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
 
     //    buat back button tp blum bisa
 //    @Override

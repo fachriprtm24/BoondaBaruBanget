@@ -65,8 +65,6 @@ public class AddChildDataActivity extends AppCompatActivity {
         });
 
         btnSave.setOnClickListener(view1-> {
-
-
             childData.setChildName(etChildrensName.getText().toString());
             childData.setBirthday(etChildrensBirthday.getText().toString());
             childData.setWeight(etChildrensKg.getText().toString());
@@ -80,7 +78,7 @@ public class AddChildDataActivity extends AppCompatActivity {
             String childNo = rbNo.getText().toString();
             String childYes = rbYes.getText().toString();
 
-
+            //gender
             if(rbBoy.isChecked()){
                 childData.setGender(childBoy);
                 insertData();
@@ -88,6 +86,8 @@ public class AddChildDataActivity extends AppCompatActivity {
                 childData.setGender(childGirl);
                 insertData();
             }
+
+            //premature
             if(rbNo.isChecked()){
                 childData.setPremature(childNo);
                 insertData();
@@ -95,6 +95,8 @@ public class AddChildDataActivity extends AppCompatActivity {
                 childData.setPremature(childYes);
                 insertData();
             }
+            Toast.makeText(getApplicationContext(), "Successfully Added!", Toast.LENGTH_SHORT).show();
+
         });
     }
     public void insertData(){

@@ -93,22 +93,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"/>
-        <Button
-            style="@style/Button"
-            android:id="@+id/btn_add_data"
-            android:layout_below="@id/pager"
-            android:layout_marginTop="10dp"
-            android:text="@string/add_data"/>
-        <!--        <FrameLayout-->
-        <!--            android:id="@+id/fl_tab"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_below="@id/btn_add_data">-->
-        <!--            <androidx.recyclerview.widget.RecyclerView-->
-        <!--                android:id="@+id/rv_measurement"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                tools:listitem="@layout/fragment_weight"/>-->
-        <!--        </FrameLayout>-->
     </RelativeLayout>
 </ScrollView>

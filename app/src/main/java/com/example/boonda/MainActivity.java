@@ -29,14 +29,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         // beri listener pada saat item/menu bottomnavigation terpilih
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-//        Log.d("testdatabase", FirebaseDatabase.getInstance().getReference("User").toString());
-
     }
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fl_fragment, fragment)
-//                    .addToBackStack(null)
                     .commit();
             return true;
         }

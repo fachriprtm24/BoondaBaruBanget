@@ -1,25 +1,24 @@
 package com.example.boonda;
 
 public class Question {
-    String question,answer;
+    String question, questionContent;
 
-    public Question(String childName, String childBirthday, String childWeight, String question, String answer) {
+    public Question() {
         this.question = question;
-        this.answer = answer;
+        this.questionContent = questionContent;
     }
 
     public String getQuestion() {
         return question;
     }
-
     public void setQuestion(String question) {
         this.question = question;
     }
-    public String getAnswer() {
-        return answer;
-    }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public String getQuestionContent() {
+        return questionContent;
+    }
+    public void setQuestionContent(String questionContent) {
+        this.questionContent = questionContent;
     }
 }
