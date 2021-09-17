@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="16dp"
     tools:context=".AddChildDataActivity">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_add_child"
             android:layout_width="match_parent"
@@ -21,198 +21,288 @@
                 android:src="@drawable/back"
                 android:background="@color/white"/>
             <TextView
-                style="@style/Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="@string/growth"/>
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar_add_child"
-            android:text="Add Children's Data"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
-        <TextView
-            style="@style/Text.TitleInput"
-            android:id="@+id/tv_childrens_name"
-            android:layout_below="@id/tv_title"
-            android:text="Children's Name"/>
-        <EditText
-            android:id="@+id/et_childrens_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_name"
-            android:textColor="@color/black"
-            android:hint="exp: Brian"
-            android:inputType="text"/>
-        <TextView
-            style="@style/Text.TitleInput"
-            android:id="@+id/tv_childrens_gender"
-            android:layout_below="@id/et_childrens_name"
-            android:text="@string/gender"/>
-        <RadioGroup
-            android:id="@+id/rbg_gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_gender">
-            <LinearLayout
+            android:padding="16dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tv_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="247dp"
+                android:text="Add Children's Data"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.47"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_childrens_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Children's Name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_join" />
+
+            <EditText
+                android:id="@+id/et_childrens_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/rb_childrens_boy"
+                android:hint="exp: Brian"
+                android:inputType="text"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_name" />
+
+            <TextView
+                android:id="@+id/tv_childrens_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/gender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_childrens_name" />
+
+            <RadioButton
+                android:id="@+id/rb_childrens_boy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/boy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_gender" />
+
+            <RadioButton
+                android:id="@+id/rb_childrens_girl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="186dp"
+                android:text="@string/girl"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rb_childrens_boy"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_gender" />
+
+            <TextView
+                android:id="@+id/tv_childrens_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/birthday"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rb_childrens_boy" />
+
+            <FrameLayout
+                android:id="@+id/fl_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_birthday">
+
+                <EditText
+                        android:id="@+id/et_childrens_birthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="exp: 12/03/2020"
+                        android:inputType="text"
+                        android:textColor="@color/black"/>
+                <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/boy"/>
-                <RadioButton
-                    android:id="@+id/rb_childrens_girl"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/calendar"
+                    android:layout_gravity="end"/>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_childrens_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/weight"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fl_birthday" />
+
+            <TextView
+                android:id="@+id/tv_childrens_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/head"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintStart_toEndOf="@+id/tv_childrens_weight"
+                app:layout_constraintTop_toBottomOf="@+id/fl_birthday" />
+
+            <TextView
+                android:id="@+id/tv_childrens_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_childrens_head"
+                app:layout_constraintTop_toBottomOf="@+id/fl_birthday" />
+
+            <EditText
+                android:id="@+id/et_childrens_kg"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_childrens_weight"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_childrens_weight"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_weight" />
+
+            <TextView
+                android:id="@+id/tv_kg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kg"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/et_childrens_kg"
+                app:layout_constraintStart_toEndOf="@+id/et_childrens_kg"
+                app:layout_constraintTop_toTopOf="@+id/et_childrens_kg"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <EditText
+                android:id="@+id/et_childrens_cmhead"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_childrens_head"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_childrens_head"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_head" />
+
+            <TextView
+                android:id="@+id/tv_cm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cm"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/et_childrens_cmhead"
+                app:layout_constraintStart_toEndOf="@+id/et_childrens_cmhead"
+                app:layout_constraintTop_toTopOf="@+id/et_childrens_cmhead"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <EditText
+                android:id="@+id/et_childrens_cmheiht"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_childrens_height"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_childrens_height"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_height" />
+
+            <TextView
+                android:id="@+id/tv_cmheight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cm"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/et_childrens_cmheiht"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/et_childrens_cmheiht"
+                app:layout_constraintTop_toTopOf="@+id/et_childrens_cmheiht"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/tv_childrens_premature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/premature"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_childrens_kg" />
+
+            <RadioButton
+                android:id="@+id/rb_childrens_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_premature" />
+
+            <RadioButton
+                android:id="@+id/rb_childrens_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="186dp"
+                android:text="@string/yes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rb_childrens_no"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_premature" />
+
+            <TextView
+                android:id="@+id/tv_childrens_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/profile_photo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rb_childrens_no" />
+
+            <FrameLayout
+                android:id="@+id/fl_premature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_childrens_photo">
+
+                <EditText
+                    android:id="@+id/et_childrens_photo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/rb_childrens_boy"
-                    android:layout_marginLeft="100dp"
-                    android:text="@string/girl"/>
-            </LinearLayout>
-        </RadioGroup>
-        <TextView
-            style="@style/Text.TitleInput"
-            android:id="@+id/tv_childrens_birthday"
-            android:layout_below="@id/rbg_gender"
-            android:text="@string/birthday"/>
+                    android:hint="exp: Brian"
+                    android:inputType="text"
+                    android:textColor="@color/black"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/camera"
+                    android:layout_gravity="end"/>
+            </FrameLayout>
 
-        <EditText
-            android:id="@+id/et_childrens_birthday"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_birthday"
-            android:layout_marginTop="0dp"
-            android:hint="exp: 12 September 2009"
-            android:inputType="text"
-            android:textColor="@color/black" />
+            <Button
+                android:id="@+id/bnt_save"
+                style="@style/Button"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/save"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fl_premature" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/calendar"
-            android:layout_below="@id/tv_childrens_birthday"
-            android:layout_toRightOf="@id/et_childrens_birthday"
-            android:layout_marginTop="15dp"/>
-        <TextView
-            style="@style/Text.TitleInput"
-            android:id="@+id/tv_childrens_weight"
-            android:layout_below="@id/et_childrens_birthday"
-            android:text="@string/weight"/>
-        <TextView
-            style="@style/Text.TitleInput"
-            android:id="@+id/tv_childrens_head"
-            android:layout_below="@id/et_childrens_birthday"
-            android:layout_toRightOf="@id/tv_childrens_weight"
-            android:layout_marginLeft="100dp"
-            android:gravity="center"
-            android:text="@string/head"/>
-        <TextView
-            style="@style/Text.TitleInput"
-            android:id="@+id/tv_childrens_height"
-            android:layout_below="@id/et_childrens_birthday"
-            android:layout_toRightOf="@id/tv_childrens_head"
-            android:layout_marginLeft="120dp"
-            android:text="@string/height"/>
-        <EditText
-            android:id="@+id/et_childrens_kg"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_weight"
-            android:textColor="@color/black"
-            android:inputType="number"/>
-        <TextView
-            android:id="@+id/tv_kg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
-            android:layout_below="@id/tv_childrens_weight"
-            android:layout_toRightOf="@id/et_childrens_kg"
-            android:textSize="16sp"
-            android:text="@string/kg"/>
-
-        <EditText
-            android:id="@+id/et_childrens_cmhead"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_weight"
-            android:layout_toRightOf="@id/et_childrens_kg"
-            android:layout_marginLeft="95dp"
-            android:textColor="@color/black"
-            android:inputType="number"/>
-        <TextView
-            android:id="@+id/tv_cm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
-            android:layout_below="@id/tv_childrens_head"
-            android:layout_toRightOf="@id/et_childrens_cmhead"
-            android:textSize="16sp"
-            android:text="@string/cm"/>
-        <EditText
-            android:id="@+id/et_childrens_cmheiht"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_height"
-            android:layout_toRightOf="@id/et_childrens_cmhead"
-            android:layout_marginLeft="103dp"
-            android:gravity="end"
-            android:textColor="@color/black"
-            android:inputType="number"/>
-        <TextView
-            android:id="@+id/tv_cmheight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="29dp"
-            android:layout_below="@id/tv_childrens_height"
-            android:layout_toRightOf="@id/et_childrens_cmheiht"
-            android:textSize="16sp"
-            android:text="@string/cm"/>
-        <TextView
-            style="@style/Text.TitleInput"
-            android:id="@+id/tv_childrens_premature"
-            android:layout_below="@id/et_childrens_kg"
-            android:text="@string/premature"/>
-        <RadioButton
-            android:id="@+id/rb_childrens_no"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_premature"
-            android:text="@string/no"/>
-        <RadioButton
-            android:id="@+id/rb_childrens_yes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_premature"
-            android:layout_toRightOf="@id/rb_childrens_no"
-            android:layout_marginLeft="100dp"
-            android:text="@string/yes"/>
-        <TextView
-            style="@style/Text.TitleInput"
-            android:id="@+id/tv_childrens_photo"
-            android:layout_below="@id/rb_childrens_no"
-            android:text="@string/profile_photo"/>
-        <EditText
-            android:id="@+id/et_childrens_photo"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_childrens_photo"
-            android:textColor="@color/black"
-            android:inputType="text"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/camera"
-            android:layout_below="@id/tv_childrens_photo"
-            android:layout_toRightOf="@id/et_childrens_photo"
-            android:layout_marginTop="15dp"/>
-        <Button
-            style="@style/Button"
-            android:id="@+id/bnt_save"
-            android:layout_below="@id/et_childrens_photo"
-            android:text="@string/save"/>
-    </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
