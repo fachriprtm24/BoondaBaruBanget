@@ -37,7 +37,7 @@ public class QuestionDialog extends AppCompatDialogFragment {
         View v = inflater.inflate(R.layout.card_question, null);
         question = new Question();
 
-        etTitle = v.findViewById(R.id.et_title);
+//        etTitle = v.findViewById(R.id.et_title);
         etQuestionTitle = v.findViewById(R.id.et_question_content);
 
 
@@ -52,7 +52,9 @@ public class QuestionDialog extends AppCompatDialogFragment {
                 .setPositiveButton("Post", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("question");
+                        dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("Discussion").child("Infants");
+//                        dbRef =  FirebaseDatabase.getInstance().getReference("Infants");
+
                         dbRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -67,11 +69,10 @@ public class QuestionDialog extends AppCompatDialogFragment {
 
                             }
                         });
-                        question.setQuestion(etTitle.getText().toString());
+//                        question.setQuestion(etTitle.getText().toString());
                         question.setQuestionContent(etQuestionTitle.getText().toString());
 
                         dbRef.child(String.valueOf("q" + (i+1))).setValue(question);
-
                         Toast.makeText(getActivity(), "Successfully Posted!", Toast.LENGTH_SHORT).show();
                     }
                 });

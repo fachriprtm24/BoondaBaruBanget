@@ -68,35 +68,35 @@ public class DiscussionFragment extends Fragment {
         ivTopic = view.findViewById(R.id.iv_topics);
 
         ivInfants.setOnClickListener(view1-> {
-            moveIntent();
+            moveInfants();
         });
 
         ivPregnancy.setOnClickListener(view1-> {
-            moveIntent();
+            movePregnancy();
         });
 
         ivEducation.setOnClickListener(view1-> {
-            moveIntent();
+            moveEducation();
         });
 
         ivBehaviour.setOnClickListener(view1-> {
-            moveIntent();
+            moveBehavior();
         });
 
         ivToddlers.setOnClickListener(view1-> {
-            moveIntent();
+            moveToddlers();
         });
 
         ivPreschool.setOnClickListener(view1-> {
-            moveIntent();
+            movePreschool();
         });
 
         ivParenting.setOnClickListener(view1-> {
-            moveIntent();
+            moveParenting();
         });
 
         ivTopic.setOnClickListener(view1-> {
-            moveIntent();
+            moveToughTopics();
         });
 
 //        recview = view.findViewById(R.id.rv_recent_discuss);
@@ -116,8 +116,36 @@ public class DiscussionFragment extends Fragment {
         return view;
     }
 
-    public void moveIntent(){
-        Intent i = new Intent(getActivity(), MenuDiscussActivity.class);
+    public void moveInfants(){
+        Intent i = new Intent(getActivity(), InfantsActivity.class);
+        startActivity(i);
+    }
+    public void movePregnancy(){
+        Intent i = new Intent(getActivity(), PregnancyActivity.class);
+        startActivity(i);
+    }
+    public void moveEducation(){
+        Intent i = new Intent(getActivity(), EducationActivity.class);
+        startActivity(i);
+    }
+    public void moveBehavior(){
+        Intent i = new Intent(getActivity(), BehaviorActivity.class);
+        startActivity(i);
+    }
+    public void moveToddlers(){
+        Intent i = new Intent(getActivity(), ToddlersActivity.class);
+        startActivity(i);
+    }
+    public void movePreschool(){
+        Intent i = new Intent(getActivity(), PreschoolActivity.class);
+        startActivity(i);
+    }
+    public void moveParenting(){
+        Intent i = new Intent(getActivity(), ParentingActivity.class);
+        startActivity(i);
+    }
+    public void moveToughTopics(){
+        Intent i = new Intent(getActivity(), ToughTopicsActivity.class);
         startActivity(i);
     }
 

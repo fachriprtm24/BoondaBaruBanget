@@ -5,16 +5,16 @@
     android:padding="16dp"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        android:textColor="@color/black"/>
-    <EditText
-        android:id="@+id/et_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Add question title..."/>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Title"-->
+<!--        android:textColor="@color/black"/>-->
+<!--    <EditText-->
+<!--        android:id="@+id/i"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Add question title..."/>-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
