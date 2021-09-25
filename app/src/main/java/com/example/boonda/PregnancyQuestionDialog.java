@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
-public class QuestionDialog extends AppCompatDialogFragment {
+public class PregnancyQuestionDialog extends AppCompatDialogFragment {
     private EditText etTitle, etQuestionTitle;
 
     DatabaseReference dbRef;
@@ -52,7 +52,7 @@ public class QuestionDialog extends AppCompatDialogFragment {
                 .setPositiveButton("Post", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("Discussion").child("Infants");
+                        dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("Discussion").child("Pregnancy");
 //                        dbRef =  FirebaseDatabase.getInstance().getReference("Infants");
 
                         dbRef.addValueEventListener(new ValueEventListener() {
