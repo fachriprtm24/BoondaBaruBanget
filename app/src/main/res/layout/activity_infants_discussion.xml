@@ -20,6 +20,7 @@
             android:background="@color/white"/>
 
         <TextView
+            android:id="@+id/InfantsTitle"
             style="@style/Title"
             android:text="Infants"/>
 

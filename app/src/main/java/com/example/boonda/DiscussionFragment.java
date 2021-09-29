@@ -58,6 +58,17 @@ public class DiscussionFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discussion, container, false);
 
+        recview = (RecyclerView)view.findViewById(R.id.rv_recent_discuss);
+        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        FirebaseRecyclerOptions<Model> options =
+            new FirebaseRecyclerOptions.Builder<Model>()
+                    .setQuery(FirebaseDatabase.getInstance().getReference().child("Discussion"), Model.class)
+                    .build();
+
+        adapter = new DiscussionAdapter(options);
+        recview.setAdapter(adapter);
+
         ivInfants = view.findViewById(R.id.iv_infants);
         ivPregnancy = view.findViewById(R.id.iv_pregnancy);
         ivEducation = view.findViewById(R.id.iv_education);
@@ -149,17 +160,17 @@ public class DiscussionFragment extends Fragment {
         startActivity(i);
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        adapter.startListening();
-//    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
 
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        adapter.stopListening();
-//    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 
     //    buat back button tp blum bisa
 //    @Override

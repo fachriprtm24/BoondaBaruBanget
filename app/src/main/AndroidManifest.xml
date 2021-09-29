@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Boonda">
-        <activity android:name=".MenuDiscussActivity"/>
+<!--        <activity android:name=".MenuDiscussActivity"/>-->
         <activity android:name=".PreschoolActivity"/>
         <activity android:name=".ToddlersActivity"/>
         <activity android:name=".BehaviorActivity"/>

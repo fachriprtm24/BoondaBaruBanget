@@ -8,6 +8,7 @@ import android.os.VibrationEffect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,9 +22,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
-public class EducationQuestionDialog extends AppCompatDialogFragment {
-    private EditText etTitle, etQuestionTitle;
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
+public class EducationQuestionDialog extends AppCompatDialogFragment {
+    private EditText etQuestionTitle, etTitle;
+    private TextView Topic, Name;
+    private int like, Comment;
     DatabaseReference dbRef;
     Question question;
 
@@ -35,10 +42,13 @@ public class EducationQuestionDialog extends AppCompatDialogFragment {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View v = inflater.inflate(R.layout.card_question, null);
+        View a = inflater.inflate(R.layout.activity_education_discussion,null);
         question = new Question();
-
-//        etTitle = v.findViewById(R.id.et_title);
+        Date date = Calendar.getInstance().getTime();
+        String FormatedDate = DateFormat.getDateInstance(DateFormat.SHORT).format(date);
+        etTitle = v.findViewById(R.id.et_title);
         etQuestionTitle = v.findViewById(R.id.et_question_content);
+        Topic = a.findViewById(R.id.EducationTitle);
 
 
         builder.setView(v)
@@ -52,27 +62,17 @@ public class EducationQuestionDialog extends AppCompatDialogFragment {
                 .setPositiveButton("Post", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("Discussion").child("Education");
-//                        dbRef =  FirebaseDatabase.getInstance().getReference("Infants");
+                        dbRef = FirebaseDatabase.getInstance().getReference().child("Discussion").child("Education");
+                        String title = etTitle.getText().toString();
+                        String Quest = etQuestionTitle.getText().toString();
+                        String topic = Topic.getText().toString();
+                        HashMap<String,String> Question = new HashMap<>();
+                        Question.put("Topic",topic);
+                        Question.put("Question",Quest);
+                        Question.put("Date",FormatedDate);
+                        Question.put("Title",title);
+                        dbRef.push().setValue(Question);
 
-                        dbRef.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                                if(snapshot.exists()){
-                                    int i = 0;
-                                    i = (int)snapshot.getChildrenCount();
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-                            }
-                        });
-//                        question.setQuestion(etTitle.getText().toString());
-                        question.setQuestionContent(etQuestionTitle.getText().toString());
-
-                        dbRef.child(String.valueOf("q" + (i+1))).setValue(question);
                         Toast.makeText(getActivity(), "Successfully Posted!", Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -3,7 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Fachri Pratama/.gradle/caches/transforms-3/9917c1060ba2f79f3519a1b2bf642c2c/transformed/play-services-base-17.1.0/res/drawable/common_google_signin_btn_icon_dark.xml" value="0.3828125" />
+        <entry key="..\:/Users/Fachri Pratama/.gradle/caches/transforms-3/9917c1060ba2f79f3519a1b2bf642c2c/transformed/play-services-base-17.1.0/res/drawable/common_google_signin_btn_icon_dark_normal.xml" value="0.3828125" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/drawable/back.xml" value="0.3828125" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/drawable/calendar.xml" value="0.3828125" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/drawable/camera.xml" value="0.3828125" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/drawable/discussion.xml" value="0.3828125" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/drawable/growth.xml" value="0.3828125" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/drawable/right.xml" value="0.3828125" />
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_add_child_data.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_add_head.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_add_height.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_add_weight.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_behavior_discussion.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_education_discussion.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_graph.xml" value="0.20520833333333333" />
@@ -18,9 +29,17 @@
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_toddlers_discussion.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/activity_toughtopics_discussion.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/card_child.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/card_head.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/card_height.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/card_question.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/carddiscussion.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/card_weight.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/carddiscussion.xml" value="0.33" />
         <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/fragment_discussion.xml" value="0.2551813471502591" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/fragment_growth.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/fragment_head.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/fragment_height.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/fragment_weight.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Fachri Pratama/AndroidStudioProjects/Boonda/app/src/main/res/layout/quetion_comment.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

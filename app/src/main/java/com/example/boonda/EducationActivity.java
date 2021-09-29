@@ -3,13 +3,12 @@ package com.example.boonda;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EducationActivity extends AppCompatActivity {
     Button btnAddQuestion;
-    EditText etTitle, etContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -24,6 +23,7 @@ public class EducationActivity extends AppCompatActivity {
             }
         });
     }
+
     private void openDialog(){
         EducationQuestionDialog questionDialog = new EducationQuestionDialog();
         questionDialog.show(getSupportFragmentManager(),"question dialog");
