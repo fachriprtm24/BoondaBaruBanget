@@ -10,7 +10,8 @@
         android:id="@+id/toolbar_add_child"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
+        android:background="@color/white"
+        >
 
         <ImageButton
             android:id="@+id/btn_back_child"

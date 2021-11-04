@@ -38,7 +38,7 @@
             android:text="+ Add Question"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_infants_discussion"
+            android:id="@+id/rv_infants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/btn_add_question"

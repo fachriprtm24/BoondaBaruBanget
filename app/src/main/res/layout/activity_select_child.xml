@@ -36,15 +36,16 @@
             android:layout_below="@id/toolbar_select"
             android:text="Choose Children's"
             android:textColor="@color/black"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_child"
-            android:layout_below="@id/tv_choose_child"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_choose_child"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            tools:listitem="@layout/card_child"/>
+            tools:listitem="@layout/card_child" />
         <Button
             android:id="@+id/btn_add_child"
             android:layout_width="match_parent"

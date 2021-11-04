@@ -1,38 +1,35 @@
 package com.example.boonda;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import org.jetbrains.annotations.NotNull;
-
-public class PagerAdapter extends FragmentStatePagerAdapter {
-    private int tab_number;
-
-    public PagerAdapter(FragmentManager fm, int tab_number){
-        super(fm);
-        this.tab_number = tab_number;
+public class PagerAdapter extends FragmentStateAdapter {
+    public PagerAdapter(AppCompatActivity activity){
+        super(activity);
     }
 
+    @NonNull
     @Override
-    public Fragment getItem(int position) {
+    public Fragment createFragment(int position) {
+        Fragment fragment = null;
         switch (position){
             case 0:
-                return new WeightFragment();
+                fragment = new WeightFragment();
+                break;
             case 1:
-                return new HeightFragment();
+                fragment = new HeightFragment();
+                break;
             case 2:
-                return new HeadFragment();
-            default:
-                return null;
+                fragment = new HeadFragment();
+                break;
         }
+        return fragment;
     }
 
-
     @Override
-    public int getCount() {
-        return tab_number;
+    public int getItemCount() {
+        return 3;
     }
 }

@@ -1,14 +1,14 @@
 package com.example.boonda;
 
 class Model {
-    String askerphoto, content, date, like, name, photo, reply, title, topic;
+    String askerphoto, question, date, like, name, photo, reply, title, topic;
 
     public Model() {
     }
 
-    public Model(String askerPhoto, String content, String date, String like, String name, String photo, String reply, String title, String topic) {
+    public Model(String askerPhoto, String question, String date, String like, String name, String photo, String reply, String title, String topic) {
         this.askerphoto = askerPhoto;
-        this.content = content;
+        this.question = question;
         this.date = date;
         this.like = like;
         this.name = name;
@@ -26,13 +26,9 @@ class Model {
         this.askerphoto = askerphoto;
     }
 
-    public String getContent() {
-        return content;
-    }
+    public String getQuestion() { return question; }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+    public void setQuestion(String question) { this.question = question; }
 
     public String getDate() {
         return date;

@@ -1,57 +1,50 @@
 package com.example.boonda;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MeasurementActivity extends AppCompatActivity {
     private TextView tvChildName;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_measurement);
+        @StringRes
+        private final int[] TAB_TITLES = new int[]{
+                R.string.tab_text_1,
+                R.string.tab_text_2,
+                R.string.tab_text_3
+        };
 
-        Toolbar toolbar = findViewById(R.id.toolbar_mea);
-        setSupportActionBar(toolbar);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_measurement);
 
-
-        final TabLayout tabLayout = findViewById(R.id.tab_layout);
-        final ViewPager viewPager = findViewById(R.id.pager);
-
-        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(pagerAdapter);
-
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+            Toolbar toolbar = findViewById(R.id.toolbar_mea);
+            setSupportActionBar(toolbar);
+            PagerAdapter pagerAdapter = new PagerAdapter(this);
+            ViewPager2 viewPager = findViewById(R.id.pager);
+            viewPager.setAdapter(pagerAdapter);
+            TabLayout tabs = findViewById(R.id.tab_layout);
+            new TabLayoutMediator(tabs, viewPager, (tab, position) -> tab.setText(getResources().getString(TAB_TITLES[position]))).attach();
+            if(getSupportActionBar() != null) {
+                getSupportActionBar().setElevation(0);
 
             }
+            tvChildName = findViewById(R.id.tv_child_name);
+            tvChildName.setOnClickListener(view1-> {
+                Intent i = new Intent(this, SelectChildActivity.class);
+                startActivity(i);
+            });
+        }
 
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
 
-            }
-        });
-
-        tvChildName = findViewById(R.id.tv_child_name);
-        tvChildName.setOnClickListener(view1 -> {
-            Intent i = new Intent(this, SelectChildActivity.class);
-            startActivity(i);
-        });
     }
 
-}

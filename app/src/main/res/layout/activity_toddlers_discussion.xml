@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ToddlersActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_add_child"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
 
         <ImageButton
             android:id="@+id/btn_back_child"
@@ -24,25 +29,39 @@
             style="@style/Title"
             android:text="Toddlers"/>
 
-    </androidx.appcompat.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <Button
-            style="@style/Button"
-            android:id="@+id/btn_add_question"
-            android:text="+ Add Question"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_infants_discussion"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_add_question"
-            android:layout_marginTop="20dp"
-            tools:listitem="@layout/carddiscussion"/>
-    </LinearLayout>
-</LinearLayout>
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_add_child">
+
+            <Button
+                android:id="@+id/btn_add_question"
+                style="@style/Button"
+                android:text="+ Add Question"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_toddlers"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_add_question"
+                app:layout_constraintTop_toBottomOf="@+id/btn_add_question"
+                tools:layout_editor_absoluteX="16dp"
+                tools:listitem="@layout/carddiscussion" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="That's all for now!"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/rv_toddlers" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -13,15 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Boonda">
-<!--        <activity android:name=".MenuDiscussActivity"/>-->
-        <activity android:name=".PreschoolActivity"/>
-        <activity android:name=".ToddlersActivity"/>
-        <activity android:name=".BehaviorActivity"/>
-        <activity android:name=".InfantsActivity"/>
-        <activity android:name=".PregnancyActivity"/>
-        <activity android:name=".ParentingActivity"/>
-        <activity android:name=".EducationActivity"/>
-        <activity android:name=".ToughTopicsActivity"/>
+        <activity
+            android:name=".CommentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HeadAddActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HeightAddActivity"
+            android:exported="true" />
+        <activity
+            android:name=".WeightAddActivity"
+            android:exported="true" /> <!-- <activity android:name=".MenuDiscussActivity"/> -->
+        <activity
+            android:name=".PreschoolActivity"
+            android:parentActivityName=".InfantsActivity" />
+        <activity android:name=".ToddlersActivity" />
+        <activity android:name=".BehaviorActivity" />
+        <activity android:name=".InfantsActivity" />
+        <activity android:name=".PregnancyActivity" />
+        <activity android:name=".ParentingActivity" />
+        <activity android:name=".EducationActivity" />
+        <activity android:name=".ToughTopicsActivity" />
         <activity android:name=".AddChildDataActivity" />
         <activity android:name=".GraphActivity" />
         <activity android:name=".SelectChildActivity" />
