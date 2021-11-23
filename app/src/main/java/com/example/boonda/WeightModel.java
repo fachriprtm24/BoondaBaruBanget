@@ -1,29 +1,14 @@
 package com.example.boonda;
 
 public class WeightModel {
-    private String ages, date, weight;
+    private String date;
+    private Integer ages,weight;
 
     public WeightModel(){}
 
-    public WeightModel(String ages, String date, String weight){
-        this.ages = ages;
+    public WeightModel(String date, Integer ages, Integer weight) {
         this.date = date;
-        this.weight = weight;
-    }
-
-    public String getAges() {
-        return ages;
-    }
-
-    public void setAges(String ages) {
         this.ages = ages;
-    }
-
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
         this.weight = weight;
     }
 
@@ -33,5 +18,21 @@ public class WeightModel {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Integer getAges() {
+        return ages;
+    }
+
+    public void setAges(Integer ages) {
+        this.ages = ages;
+    }
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 }

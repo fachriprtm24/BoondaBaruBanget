@@ -24,7 +24,7 @@ DatabaseReference dbref;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_add_weight);
-        dbref = FirebaseDatabase.getInstance().getReference().child("fachriprtm24").child("David").child("DataWeight");
+        dbref = FirebaseDatabase.getInstance().getReference().child("fachriprtm24").child("david").child("dataweight");
         Date date = Calendar.getInstance().getTime();
         String FormatedDate = DateFormat.getDateInstance(DateFormat.SHORT).format(date);
         addAges = findViewById(R.id.et_ages);
@@ -36,13 +36,24 @@ DatabaseReference dbref;
        addButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               String ages = addAges.getText().toString();
-               String Weight = addWeight.getText().toString();
-               HashMap<String,String> weightData = new HashMap<>();
-               weightData.put("ages",ages);
-               weightData.put("date",FormatedDate);
-               weightData.put("weight",Weight);
-               dbref.push().setValue(weightData);
+               //ini yang dibenerin
+//               String id = dbref.push().getKey();
+//
+//               int age = Integer.parseInt(addAges.getText().toString());
+//               int weight = Integer.parseInt(addWeight.getText().toString());
+//
+//               WeightModel weightModel = new WeightModel(FormatedDate, age, weight);
+//
+//               dbref.child(id).setValue(weightModel);
+
+
+//               String ages = addAges.getText().toString();
+//               String weight = addWeight.getText().toString();
+//               HashMap<String,String> weightData = new HashMap<>();
+//               weightData.put("ages",ages);
+//               weightData.put("date",FormatedDate);
+//               weightData.put("weight",weight);
+//               dbref.push().setValue(weightData);
 
            }
        });
