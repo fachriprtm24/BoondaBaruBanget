@@ -46,26 +46,26 @@ public class HeadFragment extends Fragment {
             startActivity(i);
         });
 
-        recyclerView = v.findViewById(R.id.rv_head);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        list = new ArrayList<HeadModel>();
-
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    HeadModel mList = dataSnapshot.getValue(HeadModel.class);
-                    list.add(mList);
-                }
-                adapter = new HeadAdapter(getContext(), list);
-                recyclerView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        recyclerView = v.findViewById(R.id.rv_head);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        list = new ArrayList<HeadModel>();
+//
+//        dbRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+//                    HeadModel mList = dataSnapshot.getValue(HeadModel.class);
+//                    list.add(mList);
+//                }
+//                adapter = new HeadAdapter(getContext(), list);
+//                recyclerView.setAdapter(adapter);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
         return v;
     }
 }

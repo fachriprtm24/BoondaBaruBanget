@@ -24,7 +24,7 @@ public class HeightAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_add_height);
-        dbref = FirebaseDatabase.getInstance().getReference().child("fachriprtm24").child("David").child("DataHeight");
+        dbref = FirebaseDatabase.getInstance().getReference().child("fachriprtm24").child("david").child("dataheight");
         Date date = Calendar.getInstance().getTime();
         String FormatedDate = DateFormat.getDateInstance(DateFormat.SHORT).format(date);
         addAges = findViewById(R.id.et_ages);
@@ -36,13 +36,23 @@ public class HeightAddActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ages = addAges.getText().toString();
-                String Height = addHeight.getText().toString();
-                HashMap<String,String> heightData = new HashMap<>();
-                heightData.put("ages",ages);
-                heightData.put("date",FormatedDate);
-                heightData.put("height",Height);
-                dbref.push().setValue(heightData);
+
+                String id = dbref.push().getKey();
+
+                int age = Integer.parseInt(addAges.getText().toString());
+                int measure = Integer.parseInt(addHeight.getText().toString());
+
+                WeightModel weightModel = new WeightModel(FormatedDate, age, measure);
+
+                dbref.child(id).setValue(weightModel);
+
+//                String ages = addAges.getText().toString();
+//                String Height = addHeight.getText().toString();
+//                HashMap<String,String> heightData = new HashMap<>();
+//                heightData.put("ages",ages);
+//                heightData.put("date",FormatedDate);
+//                heightData.put("height",Height);
+//                dbref.push().setValue(heightData);
 
             }
         });

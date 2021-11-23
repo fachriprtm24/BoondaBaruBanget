@@ -1,17 +1,17 @@
 package com.example.boonda;
 
 public class ChartModel {
-    int age, measure;
+    int ages, measure;
 
     public ChartModel(){}
 
     public ChartModel(int age, int measure) {
-        this.age = age;
+        this.ages = age;
         this.measure = measure;
     }
 
-    public int getAge() {
-        return age;
+    public int getAges() {
+        return ages;
     }
 
     public int getMeasure() {

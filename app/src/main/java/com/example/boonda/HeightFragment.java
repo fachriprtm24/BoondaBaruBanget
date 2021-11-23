@@ -46,26 +46,26 @@ public class HeightFragment extends Fragment {
             startActivity(i);
         });
 
-        recyclerView = v.findViewById(R.id.rv_height);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        list = new ArrayList<HeightModel>();
-
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    HeightModel mList = dataSnapshot.getValue(HeightModel.class);
-                    list.add(mList);
-                }
-                adapter = new HeightAdapter(getContext(), list);
-                recyclerView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        recyclerView = v.findViewById(R.id.rv_height);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        list = new ArrayList<HeightModel>();
+//
+//        dbRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+//                    HeightModel mList = dataSnapshot.getValue(HeightModel.class);
+//                    list.add(mList);
+//                }
+//                adapter = new HeightAdapter(getContext(), list);
+//                recyclerView.setAdapter(adapter);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
         return v;
     }
 

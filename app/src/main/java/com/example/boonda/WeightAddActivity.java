@@ -37,14 +37,14 @@ DatabaseReference dbref;
            @Override
            public void onClick(View v) {
                //ini yang dibenerin
-//               String id = dbref.push().getKey();
-//
-//               int age = Integer.parseInt(addAges.getText().toString());
-//               int weight = Integer.parseInt(addWeight.getText().toString());
-//
-//               WeightModel weightModel = new WeightModel(FormatedDate, age, weight);
-//
-//               dbref.child(id).setValue(weightModel);
+               String id = dbref.push().getKey();
+
+               int age = Integer.parseInt(addAges.getText().toString());
+               int measure = Integer.parseInt(addWeight.getText().toString());
+
+               WeightModel weightModel = new WeightModel(FormatedDate, age, measure);
+
+               dbref.child(id).setValue(weightModel);
 
 
 //               String ages = addAges.getText().toString();

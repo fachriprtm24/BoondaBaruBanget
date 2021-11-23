@@ -24,7 +24,7 @@ public class HeadAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.card_add_head);
-        dbref = FirebaseDatabase.getInstance().getReference().child("fachriprtm24").child("David").child("DataHead");
+        dbref = FirebaseDatabase.getInstance().getReference().child("fachriprtm24").child("david").child("datahead");
         Date date = Calendar.getInstance().getTime();
         String FormatedDate = DateFormat.getDateInstance(DateFormat.SHORT).format(date);
         addAges = findViewById(R.id.et_ages);
@@ -36,13 +36,23 @@ public class HeadAddActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ages = addAges.getText().toString();
-                String Head = addHead.getText().toString();
-                HashMap<String,String> headData = new HashMap<>();
-                headData.put("ages",ages);
-                headData.put("date",FormatedDate);
-                headData.put("head",Head);
-                dbref.push().setValue(headData);
+
+                String id = dbref.push().getKey();
+
+                int age = Integer.parseInt(addAges.getText().toString());
+                int measure = Integer.parseInt(addHead.getText().toString());
+
+                WeightModel weightModel = new WeightModel(FormatedDate, age, measure);
+
+                dbref.child(id).setValue(weightModel);
+
+//                String ages = addAges.getText().toString();
+//                String Head = addHead.getText().toString();
+//                HashMap<String,String> headData = new HashMap<>();
+//                headData.put("ages",ages);
+//                headData.put("date",FormatedDate);
+//                headData.put("head",Head);
+//                dbref.push().setValue(headData);
 
             }
         });

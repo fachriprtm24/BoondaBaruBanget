@@ -33,7 +33,7 @@ public class WeightAdapter extends RecyclerView.Adapter<WeightAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.ages.setText(mList.get(position).getAges());
         holder.date.setText(mList.get(position).getDate());
-        holder.weight.setText(mList.get(position).getWeight());
+        holder.weight.setText(mList.get(position).getMeasure());
     }
 
 

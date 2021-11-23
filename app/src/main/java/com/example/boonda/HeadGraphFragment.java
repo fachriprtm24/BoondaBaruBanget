@@ -44,7 +44,7 @@ public class HeadGraphFragment extends Fragment {
         graphView.addSeries(series);
 
         db = FirebaseDatabase.getInstance();
-        rf = db.getReference().child("children").child("c1").child("head");
+        rf = db.getReference().child("fachriprtm24").child("david").child("datahead");
 
         return v;
     }
@@ -61,7 +61,7 @@ public class HeadGraphFragment extends Fragment {
 
                 for(DataSnapshot myDataSnapshot : dataSnapshot.getChildren()){
                     ChartModel chartModel = myDataSnapshot.getValue(ChartModel.class);
-                    dp[index] = new DataPoint(chartModel.getAge(), chartModel.getMeasure());
+                    dp[index] = new DataPoint(chartModel.getAges(), chartModel.getMeasure());
                     index++;
                 }
                 series.resetData(dp);
