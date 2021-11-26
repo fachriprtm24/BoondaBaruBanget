@@ -31,7 +31,7 @@ public class WeightFragment extends Fragment {
 
     public WeightFragment() {
         mDatabase = FirebaseDatabase.getInstance();
-        dbRef = mDatabase.getReference("fachriprtm24").child("David").child("DataWeight");
+        dbRef = mDatabase.getReference("fachriprtm24").child("david").child("dataweight");
     }
 
     @Override
@@ -46,26 +46,26 @@ public class WeightFragment extends Fragment {
             startActivity(i);
         });
 
-//        recyclerView = v.findViewById(R.id.rv_weight);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        list = new ArrayList<WeightModel>();
-//
-//        dbRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-//                    WeightModel mList = dataSnapshot.getValue(WeightModel.class);
-//                    list.add(mList);
-//                }
-//                adapter = new WeightAdapter(getContext(), list);
-//                recyclerView.setAdapter(adapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+        recyclerView = v.findViewById(R.id.rv_weight);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        list = new ArrayList<WeightModel>();
+
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    WeightModel mList = dataSnapshot.getValue(WeightModel.class);
+                    list.add(mList);
+                }
+                adapter = new WeightAdapter(getContext(), list);
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         return v;
     }
 

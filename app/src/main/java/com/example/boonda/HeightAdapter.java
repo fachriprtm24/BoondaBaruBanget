@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class HeightAdapter extends RecyclerView.Adapter<HeightAdapter.MyViewHolder> {
 
-    ArrayList<HeightModel> mList;
+    ArrayList<WeightModel> mList;
     Context context;
 
-    public HeightAdapter(Context context, ArrayList<HeightModel> mList) {
+    public HeightAdapter(Context context, ArrayList<WeightModel> mList) {
         this.context = context;
         this.mList = mList;
 
@@ -33,7 +33,7 @@ public class HeightAdapter extends RecyclerView.Adapter<HeightAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.ages.setText(mList.get(position).getAges());
         holder.date.setText(mList.get(position).getDate());
-        holder.height.setText(mList.get(position).getHeight());
+        holder.height.setText(mList.get(position).getMeasure());
     }
 
 

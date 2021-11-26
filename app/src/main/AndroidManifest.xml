@@ -39,7 +39,8 @@
         <activity android:name=".GraphActivity" />
         <activity android:name=".SelectChildActivity" />
         <activity android:name=".MeasurementActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

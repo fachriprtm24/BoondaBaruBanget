@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class HeadAdapter extends RecyclerView.Adapter<HeadAdapter.MyViewHolder> {
 
-    ArrayList<HeadModel> mList;
+    ArrayList<WeightModel> mList;
     Context context;
 
-    public HeadAdapter(Context context, ArrayList<HeadModel> mList) {
+    public HeadAdapter(Context context, ArrayList<WeightModel> mList) {
         this.context = context;
         this.mList = mList;
 
@@ -33,7 +33,7 @@ public class HeadAdapter extends RecyclerView.Adapter<HeadAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull HeadAdapter.MyViewHolder holder, int position) {
         holder.ages.setText(mList.get(position).getAges());
         holder.date.setText(mList.get(position).getDate());
-        holder.head.setText(mList.get(position).getHead());
+        holder.head.setText(mList.get(position).getMeasure());
     }
 
 
