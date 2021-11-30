@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
             cvMeasurement = view.findViewById(R.id.cv_measurement);
             cvGraphs = view.findViewById(R.id.cv_graph);
+            cvHealth = view.findViewById(R.id.cv_health);
 
             cvMeasurement.setOnClickListener(view1-> {
                 Intent i = new Intent(getActivity(), MeasurementActivity.class);
@@ -29,6 +30,11 @@ import androidx.fragment.app.Fragment;
 
             cvGraphs.setOnClickListener(view1-> {
                 Intent i = new Intent(getActivity(), GraphActivity.class);
+                startActivity(i);
+            });
+
+            cvHealth.setOnClickListener(view1-> {
+                Intent i = new Intent(getActivity(), AddChildDataActivity.class);
                 startActivity(i);
             });
 

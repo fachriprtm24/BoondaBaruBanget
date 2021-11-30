@@ -1,16 +1,16 @@
 package com.example.boonda;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +23,7 @@ public class AddChildDataActivity extends AppCompatActivity {
     private EditText etChildrensName, etChildrensBirthday, etChildrensKg, etChildrensCmhead, etChildrensCmheight, etChildrensPhoto;
     private RadioButton rbBoy, rbGirl, rbNo, rbYes;
     private Button btnSave;
-
+    FirebaseAuth mAuth;
     DatabaseReference dbRef;
 
     ChildData childData;
@@ -34,6 +34,12 @@ public class AddChildDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_child_data);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser userr = mAuth.getCurrentUser();
+        String curr= userr.getEmail();
+        curr = curr.replace("@", "").replace(".", "");
 
         etChildrensName = findViewById(R.id.et_childrens_name);
         etChildrensBirthday = findViewById(R.id.et_childrens_birthday);
@@ -49,7 +55,7 @@ public class AddChildDataActivity extends AppCompatActivity {
         rbYes = findViewById(R.id.rb_childrens_yes);
         btnSave = findViewById(R.id.bnt_save);
 
-        dbRef = FirebaseDatabase.getInstance().getReference().child("User").child("children");
+        dbRef = FirebaseDatabase.getInstance().getReference().child(curr).child("children");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
@@ -100,6 +106,6 @@ public class AddChildDataActivity extends AppCompatActivity {
         });
     }
     public void insertData(){
-        dbRef.child(String.valueOf("c" + (i+1))).setValue(childData);
+        dbRef.child(String.valueOf(etChildrensName.getText().toString())).setValue(childData);
     }
 }

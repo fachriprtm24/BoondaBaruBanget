@@ -7,20 +7,47 @@
     android:padding="16dp"
     tools:context=".HomeFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="user saat ini:"/>
+    <TextView
+        android:id="@+id/curr_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="User"/>
     <EditText
-        android:id="@+id/et_title"
+        android:id="@+id/coba_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="question"/>
+        android:layout_marginTop="20dp"
+        android:hint="child name"
+        android:inputType="text"/>
     <EditText
-        android:id="@+id/et_answer"
+        android:id="@+id/coba_weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="answer"/>
+        android:hint="weight"
+        android:inputType="text"/>
+    <EditText
+        android:id="@+id/coba_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="height"
+        android:inputType="text"/>
+    <EditText
+        android:id="@+id/coba_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="head"
+        android:inputType="text"/>
     <Button
-        android:id="@+id/btn_try"
+        android:id="@+id/coba_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"/>
+
+
 
 </LinearLayout>
