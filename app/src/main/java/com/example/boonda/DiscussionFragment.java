@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,7 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class DiscussionFragment extends Fragment {
 
@@ -22,6 +29,8 @@ public class DiscussionFragment extends Fragment {
 
     RecyclerView recview;
     DiscussionAdapter adapter;
+    ArrayList<ModelActivity> list;
+    DatabaseReference dbref;
 
     public DiscussionFragment() {
 
@@ -34,13 +43,25 @@ public class DiscussionFragment extends Fragment {
         recview = (RecyclerView) view.findViewById(R.id.rv_recent_discuss);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<Model> options =
-                new FirebaseRecyclerOptions.Builder<Model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("discussion"), Model.class)
-                        .build();
+        list = new ArrayList<ModelActivity>();
+        dbref = FirebaseDatabase.getInstance().getReference().child("discussion");
+        dbref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for(DataSnapshot dataSnapshot1: snapshot.getChildren()){
+                    ModelActivity mList = dataSnapshot1.getValue(ModelActivity.class);
+                    list.add(0,mList);
+                }
+                adapter = new DiscussionAdapter(getContext(),list);
+                recview.setAdapter(adapter);
 
-        adapter = new DiscussionAdapter(options);
-        recview.setAdapter(adapter);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         ivInfants = view.findViewById(R.id.iv_infants);
         ivPregnancy = view.findViewById(R.id.iv_pregnancy);
@@ -127,17 +148,17 @@ public class DiscussionFragment extends Fragment {
         startActivity(i);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
 
 
 }

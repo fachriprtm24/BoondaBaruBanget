@@ -23,13 +23,24 @@ import java.util.HashMap;
 public class ToddlersQuestionDialog extends AppCompatDialogFragment {
     private EditText etQuestionTitle, etTitle;
     private TextView Topic, Name;
-    private int i = 0, Comment;
+    private int i = 0, Comment, count = 0;
     DatabaseReference dbRef, dbRef1;
+
+    static ToddlersQuestionDialog newInstance(int size) {
+        ToddlersQuestionDialog f = new ToddlersQuestionDialog();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("size", size);
+        f.setArguments(args);
+
+        return f;
+    }
 
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
+        count = getArguments().getInt("size");
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -63,6 +74,7 @@ public class ToddlersQuestionDialog extends AppCompatDialogFragment {
                         String Like = like.toString();
                         HashMap<String,String> Question = new HashMap<>();
                         HashMap<String,Integer> Question1 = new HashMap<>();
+                        Question.put("id", String.valueOf(count+=1));
                         Question.put("topic",topic);
                         Question.put("question",Quest);
                         Question.put("date",FormatedDate);
@@ -70,8 +82,6 @@ public class ToddlersQuestionDialog extends AppCompatDialogFragment {
                         Question.put("like",Like);
                         dbRef.push().setValue(Question);
                         dbRef1.push().setValue(Question);
-
-
 
                         Toast.makeText(getActivity(), "Successfully Posted!", Toast.LENGTH_SHORT).show();
                     }

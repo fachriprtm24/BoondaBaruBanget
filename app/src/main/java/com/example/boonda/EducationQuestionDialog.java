@@ -9,9 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatDialogFragment;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,13 +21,25 @@ import java.util.HashMap;
 public class EducationQuestionDialog extends AppCompatDialogFragment {
     private EditText etQuestionTitle, etTitle;
     private TextView Topic, Name;
-    private int i = 0, Comment;
+    private int i = 0, Comment, count = 0;
     DatabaseReference dbRef, dbRef1;
+
+    static EducationQuestionDialog newInstance(int size) {
+        EducationQuestionDialog f = new EducationQuestionDialog();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("size", size);
+        f.setArguments(args);
+
+        return f;
+    }
 
 
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        count = getArguments().getInt("size");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -64,6 +74,7 @@ public class EducationQuestionDialog extends AppCompatDialogFragment {
                         String topic = Topic.getText().toString();
                         String Like = like.toString();
                         HashMap<String,String> Question = new HashMap<>();
+                        Question.put("id", String.valueOf(count + 1));
                         Question.put("topic",topic);
                         Question.put("question",Quest);
                         Question.put("date",FormatedDate);

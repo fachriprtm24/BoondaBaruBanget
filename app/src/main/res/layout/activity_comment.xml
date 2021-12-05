@@ -126,40 +126,40 @@
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".EducationActivity">
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        tools:context=".EducationActivity">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_comment"
-            android:layout_width="match_parent"
-            android:layout_height="427dp"
-            android:layout_below="@id/btn_add_question"
-            android:layout_marginTop="150dp"
-            tools:listitem="@layout/card_comment" />
-        <EditText
-            android:id="@+id/etComment"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Comment"/>
-        <Button
-            android:id="@+id/btn_add_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            android:textColor="@color/white"
-            />
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_comment"
+                android:layout_width="match_parent"
+                android:layout_height="427dp"
+                android:layout_below="@id/btn_add_question"
+                android:layout_marginTop="150dp"
+                tools:listitem="@layout/card_comment" />
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Comment"/>
+            <Button
+                android:id="@+id/btn_add_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

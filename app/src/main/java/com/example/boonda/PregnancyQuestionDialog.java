@@ -23,13 +23,25 @@ import java.util.HashMap;
 public class PregnancyQuestionDialog extends AppCompatDialogFragment {
     private EditText etQuestionTitle, etTitle;
     private TextView Topic, Name;
-    private int i = 0, Comment;
+    private int i = 0, Comment, count = 0;
     DatabaseReference dbRef, dbRef1;
+
+    static PregnancyQuestionDialog newInstance(int size) {
+        PregnancyQuestionDialog f = new PregnancyQuestionDialog();
+
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("size", size);
+        f.setArguments(args);
+
+        return f;
+    }
 
 
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        count = getArguments().getInt("size");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -63,6 +75,7 @@ public class PregnancyQuestionDialog extends AppCompatDialogFragment {
                         String topic = Topic.getText().toString();
                         String Like = like.toString();
                         HashMap<String,String> Question = new HashMap<>();
+                        Question.put("id", String.valueOf(count+=1));
                         Question.put("topic",topic);
                         Question.put("question",Quest);
                         Question.put("date",FormatedDate);

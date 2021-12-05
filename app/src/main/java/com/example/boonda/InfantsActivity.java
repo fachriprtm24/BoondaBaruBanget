@@ -1,5 +1,7 @@
 package com.example.boonda;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +29,7 @@ public class InfantsActivity extends AppCompatActivity {
     ArrayList<ModelActivity> list;
     RecyclerView recview;
     AdapterActivity adapter;
+    Integer size;
 
 
     @Override
@@ -33,14 +38,15 @@ public class InfantsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_infants_discussion);
 
         btnAddQuestion = findViewById(R.id.btn_add_question);
-        btnAddQuestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog();
-            }
-        });
+//        btnAddQuestion.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openDialog();
+//            }
+//        });
         recview = (RecyclerView) findViewById(R.id.rv_infants);
         recview.setLayoutManager( new LinearLayoutManager(this));
+
         list = new ArrayList<ModelActivity>();
 
 
@@ -48,12 +54,20 @@ public class InfantsActivity extends AppCompatActivity {
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 for(DataSnapshot dataSnapshot1: snapshot.getChildren()){
                     ModelActivity mList = dataSnapshot1.getValue(ModelActivity.class);
                     list.add(0,mList);
                 }
-                adapter = new AdapterActivity(InfantsActivity.this,list);
+                adapter = new AdapterActivity(InfantsActivity.this,list, "infants");
                 recview.setAdapter(adapter);
+                size = list.size();
+                btnAddQuestion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openDialog(size);
+                    }
+                });
 
             }
             @Override
@@ -62,11 +76,12 @@ public class InfantsActivity extends AppCompatActivity {
             }
         });
     }
-    private void openDialog(){
-        InfantsQuestionDialog questionDialog = new InfantsQuestionDialog();
-        questionDialog.show(getSupportFragmentManager(),"question dialog");
+    private void openDialog(Integer size){
+        FragmentManager fm = getSupportFragmentManager();
+        InfantsQuestionDialog dlg = InfantsQuestionDialog.newInstance(size);
+        dlg.show(fm, "fragment");
+
+//        InfantsQuestionDialog questionDialog = new InfantsQuestionDialog();
+//        questionDialog.show(getSupportFragmentManager(),"question dialog");
     }
-
-
-
 }

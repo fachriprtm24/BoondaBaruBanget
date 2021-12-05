@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ public class ToddlersActivity extends AppCompatActivity {
     ArrayList<ModelActivity> list;
     RecyclerView recview;
     AdapterActivity adapter;
+    Integer size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -31,12 +33,12 @@ public class ToddlersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_toddlers_discussion);
 
         btnAddQuestion = findViewById(R.id.btn_add_question);
-        btnAddQuestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog();
-            }
-        });
+//        btnAddQuestion.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openDialog();
+//            }
+//        });
 
         recview = (RecyclerView) findViewById(R.id.rv_toddlers);
         recview.setLayoutManager( new LinearLayoutManager(this));
@@ -47,13 +49,20 @@ public class ToddlersActivity extends AppCompatActivity {
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 for(DataSnapshot dataSnapshot1: snapshot.getChildren()){
                     ModelActivity mList = dataSnapshot1.getValue(ModelActivity.class);
                     list.add(0,mList);
                 }
-                adapter = new AdapterActivity(ToddlersActivity.this,list);
+                adapter = new AdapterActivity(ToddlersActivity.this,list, "toddlers");
                 recview.setAdapter(adapter);
-
+                size = list.size();
+                btnAddQuestion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openDialog(size);
+                    }
+                });
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -62,8 +71,9 @@ public class ToddlersActivity extends AppCompatActivity {
         });
     }
 
-    private void openDialog(){
-        ToddlersQuestionDialog questionDialog = new ToddlersQuestionDialog();
-        questionDialog.show(getSupportFragmentManager(),"question dialog");
+    private void openDialog(Integer size){
+        FragmentManager fm = getSupportFragmentManager();
+        ToddlersQuestionDialog dlg = ToddlersQuestionDialog.newInstance(size);
+        dlg.show(fm, "fragment");
     }
 }

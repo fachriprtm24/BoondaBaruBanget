@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,7 @@ public class ToughTopicsActivity extends AppCompatActivity {
     ArrayList<ModelActivity> list;
     RecyclerView recview;
     AdapterActivity adapter;
+    Integer size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -32,12 +34,12 @@ public class ToughTopicsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_toughtopics_discussion);
 
         btnAddQuestion = findViewById(R.id.btn_add_question);
-        btnAddQuestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog();
-            }
-        });
+//        btnAddQuestion.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openDialog();
+//            }
+//        });
         recview = (RecyclerView) findViewById(R.id.rv_toughtopics);
         recview.setLayoutManager( new LinearLayoutManager(this));
         list = new ArrayList<ModelActivity>();
@@ -47,12 +49,20 @@ public class ToughTopicsActivity extends AppCompatActivity {
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 for(DataSnapshot dataSnapshot1: snapshot.getChildren()){
                     ModelActivity mList = dataSnapshot1.getValue(ModelActivity.class);
                     list.add(0,mList);
                 }
-                adapter = new AdapterActivity(ToughTopicsActivity.this,list);
+                adapter = new AdapterActivity(ToughTopicsActivity.this,list, "toughtopics");
                 recview.setAdapter(adapter);
+                size = list.size();
+                btnAddQuestion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openDialog(size);
+                    }
+                });
 
             }
             @Override
@@ -61,8 +71,12 @@ public class ToughTopicsActivity extends AppCompatActivity {
             }
         });
     }
-    private void openDialog(){
-        ToughTopicsQuestionDialog questionDialog = new ToughTopicsQuestionDialog();
-        questionDialog.show(getSupportFragmentManager(),"question dialog");
+    private void openDialog(Integer size){
+        FragmentManager fm = getSupportFragmentManager();
+        ToughTopicsQuestionDialog dlg = ToughTopicsQuestionDialog.newInstance(size);
+        dlg.show(fm, "fragment");
+
+//        InfantsQuestionDialog questionDialog = new InfantsQuestionDialog();
+//        questionDialog.show(getSupportFragmentManager(),"question dialog");
     }
 }

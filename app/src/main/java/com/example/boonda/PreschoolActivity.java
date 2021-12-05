@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class PreschoolActivity extends AppCompatActivity {
     DatabaseReference dbref;
@@ -25,6 +27,7 @@ public class PreschoolActivity extends AppCompatActivity {
     ArrayList<ModelActivity> list;
     RecyclerView recview;
     AdapterActivity adapter;
+    Integer size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -32,12 +35,12 @@ public class PreschoolActivity extends AppCompatActivity {
         setContentView(R.layout.activity_preschool_discussion);
 
         btnAddQuestion = findViewById(R.id.btn_add_question);
-        btnAddQuestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog();
-            }
-        });
+//        btnAddQuestion.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openDialog();
+//            }
+//        });
         recview = (RecyclerView) findViewById(R.id.rv_preschool);
         recview.setLayoutManager( new LinearLayoutManager(this));
         list = new ArrayList<ModelActivity>();
@@ -47,12 +50,20 @@ public class PreschoolActivity extends AppCompatActivity {
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 for(DataSnapshot dataSnapshot1: snapshot.getChildren()){
                     ModelActivity mList = dataSnapshot1.getValue(ModelActivity.class);
                     list.add(0,mList);
                 }
-                adapter = new AdapterActivity(PreschoolActivity.this,list);
+                adapter = new AdapterActivity(PreschoolActivity.this,list, "preschool");
                 recview.setAdapter(adapter);
+                size = list.size();
+                btnAddQuestion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openDialog(size);
+                    }
+                });
 
             }
             @Override
@@ -61,8 +72,9 @@ public class PreschoolActivity extends AppCompatActivity {
             }
         });
     }
-    private void openDialog(){
-        PreschoolQuestionDialog questionDialog = new PreschoolQuestionDialog();
-        questionDialog.show(getSupportFragmentManager(),"question dialog");
+    private void openDialog(Integer size){
+        FragmentManager fm = getSupportFragmentManager();
+        PreschoolQuestionDialog dlg = PreschoolQuestionDialog.newInstance(size);
+        dlg.show(fm, "fragment");
     }
 }

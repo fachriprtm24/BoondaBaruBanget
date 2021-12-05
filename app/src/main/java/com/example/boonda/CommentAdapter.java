@@ -17,10 +17,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHolder> {
 
-    ArrayList<ModelActivity> mList;
+    ArrayList<ModelComment> mList;
     Context context;
 
-    public CommentAdapter(Context context, ArrayList<ModelActivity> mList){
+    public CommentAdapter(Context context, ArrayList<ModelComment> mList){
         this.mList = mList;
         this.context = context;
     }
@@ -35,11 +35,11 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.name.setText(mList.get(position).getName());
+        //holder.name.setText(mList.get(position).getName());
         holder.date.setText(mList.get(position).getDate());
         holder.comment.setText(mList.get(position).getComment());
 
-        Glide.with(holder.imgProfile.getContext()).load(mList.get(position).getAskerphoto()).placeholder(R.drawable.common_google_signin_btn_icon_dark).circleCrop().error(R.drawable.common_google_signin_btn_icon_dark_normal).into(holder.imgProfile);
+        //Glide.with(holder.imgProfile.getContext()).load(mList.get(position).getAskerphoto()).placeholder(R.drawable.common_google_signin_btn_icon_dark).circleCrop().error(R.drawable.common_google_signin_btn_icon_dark_normal).into(holder.imgProfile);
 
     }
 

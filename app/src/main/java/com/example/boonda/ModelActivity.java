@@ -1,14 +1,17 @@
 package com.example.boonda;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ModelActivity implements Serializable {
-    String askerphoto, question, date, like, name, photo, reply, title, topic, comment;
+    String id, askerphoto, question, date, like, name, photo, reply, title, topic;
+    ArrayList<ModelComment> commentList;
+
 
     public ModelActivity() {
     }
 
-    public ModelActivity(String askerPhoto, String question, String date, String like, String name, String photo, String reply, String title, String topic, String comment) {
+    public ModelActivity(String id,String askerPhoto, String question, String date, String like, String name, String photo, String reply, String title, String topic, ArrayList<ModelComment> comment) {
         this.askerphoto = askerPhoto;
         this.question = question;
         this.date = date;
@@ -18,7 +21,16 @@ public class ModelActivity implements Serializable {
         this.reply = reply;
         this.title = title;
         this.topic = topic;
-        this.comment = comment;
+        this.commentList = comment;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getAskerphoto() {
@@ -89,7 +101,11 @@ public class ModelActivity implements Serializable {
         this.topic = topic;
     }
 
-    public String getComment() { return comment; }
+    public ArrayList<ModelComment> getCommentList() {
+        return commentList;
+    }
 
-    public void setComment(String comment) { this.comment = comment; }
+    public void setCommentList(ArrayList<ModelComment> commentList) {
+        this.commentList = commentList;
+    }
 }
