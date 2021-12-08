@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class GraphActivity extends AppCompatActivity {
+
+    LinearLayout child;
 
     @StringRes
     private final int[] TAB_TITLES = new int[]{
@@ -26,6 +31,8 @@ public class GraphActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
+        child = findViewById(R.id.ly_graph);
+
         Toolbar toolbar = findViewById(R.id.toolbar_graph);
         setSupportActionBar(toolbar);
         PagerAdapterGraph pagerAdapterGraph = new PagerAdapterGraph(this);
@@ -37,6 +44,14 @@ public class GraphActivity extends AppCompatActivity {
             getSupportActionBar().setElevation(0);
 
         }
+
+        child.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(GraphActivity.this, SelectChildActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 }

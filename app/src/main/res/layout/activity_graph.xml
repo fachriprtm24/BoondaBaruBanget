@@ -35,19 +35,26 @@
             android:textSize="15sp"
             android:textStyle="bold" />
         <LinearLayout
+            android:id="@+id/ly_graph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar_graph"
             android:layout_toRightOf="@id/tv_graph_title"
             android:gravity="end"
             android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/boy"/>
             <TextView
-                android:id="@+id/tv_all_children"
+                android:id="@+id/tv_name_children"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:text="All Children's"
+                android:text="David"
                 android:textColor="@color/black"/>
             <ImageButton
                 android:id="@+id/ib_drop_down"

@@ -31,9 +31,14 @@ public class WeightAdapter extends RecyclerView.Adapter<WeightAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.ages.setText(mList.get(position).getAges());
+//        String st_ages = String.valueOf(mList.get(position).getAges());
+//        String st_weight = String.valueOf(mList.get(position).getMeasure());
+        String st_ages = Integer.toString(mList.get(position).getAges());
+        String st_weight = Integer.toString(mList.get(position).getMeasure());
+
+        holder.ages.setText(st_ages);
         holder.date.setText(mList.get(position).getDate());
-        holder.weight.setText(mList.get(position).getMeasure());
+        holder.weight.setText(st_weight);
     }
 
 
