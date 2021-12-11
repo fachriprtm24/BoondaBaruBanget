@@ -80,27 +80,5 @@ public class SelectChildActivity extends AppCompatActivity {
             }
         });
 
-//
-//        mStorage  = FirebaseStorage.getInstance().getReference("child");
-//        dbref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot dataSnapshot1: snapshot.getChildren()){
-//                    ChildrenModel mList = dataSnapshot1.getValue(ChildrenModel.class);
-//                    list.add(mList);
-//
-//                }
-//                adapter = new ChildrenAdapter(SelectChildActivity.this,list);
-//                recview.setAdapter(adapter);
-//
-//
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(SelectChildActivity.this, "Belum ada Data Anak", Toast.LENGTH_SHORT).show();
-//            }
-//     });
-
-
     }
 }

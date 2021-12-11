@@ -1,23 +1,23 @@
 package com.example.boonda;
 
 class SelectChildModel {
-    private String image, childName;
+    private String photoProfile, childName;
 
     public SelectChildModel(){
 
     }
 
     public SelectChildModel(String image, String name) {
-        this.image = image;
+        this.photoProfile = image;
         this.childName = name;
     }
 
-    public String getImage() {
-        return image;
+    public String getPhotoProfile() {
+        return photoProfile;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPhotoProfile(String photoProfile) {
+        this.photoProfile = photoProfile;
     }
 
     public String getChildName() {

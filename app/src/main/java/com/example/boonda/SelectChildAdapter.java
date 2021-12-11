@@ -10,7 +10,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
-import io.grpc.Context;
 
 public class SelectChildAdapter extends RecyclerView.Adapter<SelectChildAdapter.ImageViewHolder>{
     private SelectChildActivity mContext;
@@ -35,7 +34,7 @@ public class SelectChildAdapter extends RecyclerView.Adapter<SelectChildAdapter.
 
         //menit ke 6:13
         Glide.with(holder.itemView.getContext())
-                .load(imageCurr.getImage())
+                .load(imageCurr.getPhotoProfile())
                 .apply(new RequestOptions().override(55,55))
                 .into(holder.circleImageView);
 
