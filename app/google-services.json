@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "769446506394",
-    "firebase_url": "https://boondadiscussion-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "boondadiscussion",
-    "storage_bucket": "boondadiscussion.appspot.com"
+    "project_number": "781084017847",
+    "firebase_url": "https://boonda-monitoring-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "boonda-monitoring",
+    "storage_bucket": "boonda-monitoring.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:769446506394:android:71be756b52e983dc991423",
+        "mobilesdk_app_id": "1:781084017847:android:f91f46a07913d37395f932",
         "android_client_info": {
           "package_name": "com.example.boonda"
         }
       },
       "oauth_client": [
         {
-          "client_id": "769446506394-fhop934f8im6jcr1lilv55usgo75n2a4.apps.googleusercontent.com",
+          "client_id": "781084017847-p8qhp7c8n3862q1teh3ldnc5m79pe28p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyArlFZDHoT9SogucgGVd_ZXGOnW9mHzV5o"
+          "current_key": "AIzaSyDbACHC3epK2cUkkASVbcT8_tjbNekY44c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "769446506394-fhop934f8im6jcr1lilv55usgo75n2a4.apps.googleusercontent.com",
+              "client_id": "781084017847-p8qhp7c8n3862q1teh3ldnc5m79pe28p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -37,27 +37,43 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:769446506394:android:c5d59b2089e7f3d0991423",
+        "mobilesdk_app_id": "1:781084017847:android:eabe002bf811a58095f932",
         "android_client_info": {
-          "package_name": "com.example.discussion"
+          "package_name": "com.example.boondamonitoring"
         }
       },
       "oauth_client": [
         {
-          "client_id": "769446506394-fhop934f8im6jcr1lilv55usgo75n2a4.apps.googleusercontent.com",
+          "client_id": "781084017847-6p7t4e3ea9q89nhfiqbbo4aruiohama8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.boondamonitoring",
+            "certificate_hash": "b1597a79b962418cfe49df2b94793f228a95298d"
+          }
+        },
+        {
+          "client_id": "781084017847-7a8o194fcgvdrun2rtg6rebhm80t76mp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.boondamonitoring",
+            "certificate_hash": "21ca679a18a21cb4a2b02417f55e93a7ebb6565d"
+          }
+        },
+        {
+          "client_id": "781084017847-p8qhp7c8n3862q1teh3ldnc5m79pe28p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyArlFZDHoT9SogucgGVd_ZXGOnW9mHzV5o"
+          "current_key": "AIzaSyDbACHC3epK2cUkkASVbcT8_tjbNekY44c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "769446506394-fhop934f8im6jcr1lilv55usgo75n2a4.apps.googleusercontent.com",
+              "client_id": "781084017847-p8qhp7c8n3862q1teh3ldnc5m79pe28p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -66,27 +82,64 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:769446506394:android:851bbf6c59eadcb6991423",
+        "mobilesdk_app_id": "1:781084017847:android:24a0c9fe1637409d95f932",
         "android_client_info": {
-          "package_name": "com.example.testdiscussion"
+          "package_name": "com.example.boondaproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "769446506394-fhop934f8im6jcr1lilv55usgo75n2a4.apps.googleusercontent.com",
+          "client_id": "781084017847-ff4hn8k2302nclcm36mp7glnlqoufjut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.boondaproject",
+            "certificate_hash": "b1597a79b962418cfe49df2b94793f228a95298d"
+          }
+        },
+        {
+          "client_id": "781084017847-p8qhp7c8n3862q1teh3ldnc5m79pe28p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyArlFZDHoT9SogucgGVd_ZXGOnW9mHzV5o"
+          "current_key": "AIzaSyDbACHC3epK2cUkkASVbcT8_tjbNekY44c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "769446506394-fhop934f8im6jcr1lilv55usgo75n2a4.apps.googleusercontent.com",
+              "client_id": "781084017847-p8qhp7c8n3862q1teh3ldnc5m79pe28p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781084017847:android:3c5cf05bf7f7aa0e95f932",
+        "android_client_info": {
+          "package_name": "com.example.monitoring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781084017847-p8qhp7c8n3862q1teh3ldnc5m79pe28p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbACHC3epK2cUkkASVbcT8_tjbNekY44c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781084017847-p8qhp7c8n3862q1teh3ldnc5m79pe28p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
